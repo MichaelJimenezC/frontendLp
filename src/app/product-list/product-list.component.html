@@ -1,0 +1,44 @@
+<div class="home">
+    <div class="product-section">
+      <!-- Novedades de temporada -->
+      <div class="section">
+        <div class="section-header">
+          <h2>Novedades de temporada</h2>
+          <a href="#">Explora más</a>
+        </div>
+        <div class="product-carousel">
+          <div *ngFor="let product of seasonProducts" class="product-card">
+            <img [src]="product.img" alt="Producto" class="product-image">
+            <div class="product-info">
+              <p class="views">👁 {{ product.views }}</p>
+              <p>Vendido por: {{ product.seller }}</p>
+              <p>Precio: {{ product.price }}</p>
+            </div>
+            <button>Agregar al carrito</button>
+            <span class="favorite">❤️</span>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Productos más vendidos -->
+      <div class="section">
+        <div class="section-header">
+          <h2>Productos más vendidos</h2>
+          <a href="#">Explora más</a>
+        </div>
+        <div class="product-carousel">
+          <div *ngFor="let product of bestSellers" class="product-card">
+            <img [src]="product.img" alt="Producto" class="product-image">
+            <div class="product-info">
+              <p class="views">👁 {{ product.views }}</p>
+              <p>Vendido por: {{ product.seller }}</p>
+              <p>Precio: {{ product.price }}</p>
+            </div>
+            <button>Agregar al carrito</button>
+            <span class="favorite">❤️</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

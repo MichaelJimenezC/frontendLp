@@ -133,4 +133,385 @@ body {
     align-items: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
+  /* Estilos para las secciones de productos */
+.product-section {
+  padding: 20px;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
+  font-size: 24px;
+}
+
+.section-header a {
+  color: #6b40e3;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.product-carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.product-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  width: 200px;
+  text-align: center;
+  position: relative;
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.product-info {
+  margin-bottom: 10px;
+}
+
+.product-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.product-info .views {
+  font-weight: bold;
+  color: #333;
+}
+
+button {
+  background-color: #6b40e3;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #5432b0;
+}
+
+.favorite {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  color: #ff6666;
+}
+
+.favorite:hover {
+  color: #ff3333;
+}
+/* Estilos para la sección de unirse */
+.join-section {
+  display: flex;
+  flex-direction: row; /* Alinea las columnas de manera horizontal */
+  justify-content: space-between; /* Espaciado entre las columnas */
+  align-items: center; /* Centra los elementos verticalmente */
+  padding: 40px 20px;
+  gap: 30px;
+}
+
+/* Estilo de la primera columna (imagen) */
+.join-column img {
+  width: 100%;
+  height: auto;
+  max-width: 600px; /* Limita el tamaño máximo de la imagen */
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de la segunda columna (contenido) */
+.join-column .join-content {
+  max-width: 500px;
+  text-align: left;
+}
+
+.join-content h2 {
+  font-size: 2rem;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.join-content p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.register-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-btn:hover {
+  background-color: #0056b3;
+}
+
   
+/* Estilos para la sección de "Nuestros Servicios" */
+.services-section {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.services-section h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.services-section p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* Contenedor de los servicios */
+.services-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+  gap: 30px;
+  justify-items: center;
+  margin-top: 20px;
+}
+
+/* Estilo para cada servicio */
+.service-item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  max-width: 250px; /* Ancho máximo para que las tarjetas no sean demasiado grandes */
+  display: flex;
+  align-items: center; /* Centra el contenido verticalmente */
+  gap: 15px; /* Espacio entre el icono y el texto */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto de hover para cada servicio */
+.service-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para el icono */
+.service-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Estilo para el texto dentro de cada servicio */
+.service-text {
+  flex: 1;
+  text-align: left;
+}
+
+.service-item h3 {
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.service-item p {
+  font-size: 1rem;
+  color: #555;
+  text-align: left;
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 768px) {
+  .services-list {
+    grid-template-columns: 1fr; /* En pantallas pequeñas, los servicios se apilan en una sola columna */
+  }
+}
+
+/* Estilos para la sección de "Opiniones de los Clientes" */
+.reviews-section {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.reviews-section h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.reviews-section p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* Contenedor de las opiniones */
+.reviews-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+  gap: 30px;
+  justify-items: center;
+  margin-top: 20px;
+}
+
+/* Estilo para cada tarjeta de opinión */
+.review-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  max-width: 300px; /* Ancho máximo para que las tarjetas no sean demasiado grandes */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto de hover para las tarjetas de opinión */
+.review-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Foto del cliente */
+.client-photo {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+/* Texto de la opinión */
+.review-text {
+  text-align: center;
+}
+
+/* Estilo para las estrellas */
+.stars {
+  font-size: 1.5rem;
+  color: #f1c40f; /* Amarillo dorado */
+  margin: 10px 0;
+}
+
+/* Nombre del cliente */
+.client-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 768px) {
+  .reviews-list {
+    grid-template-columns: 1fr; /* En pantallas pequeñas, las opiniones se apilan en una sola columna */
+  }
+}
+/* Estilos para el footer */
+.footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+  gap: 40px;
+  background-color: #333;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: left;
+}
+
+.footer-column h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.footer-column p {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.footer-column ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.footer-column ul li {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 8px;
+}
+
+/* Estilos para los iconos de redes sociales */
+.social-icons {
+  display: flex;
+  gap: 20px;
+}
+
+.social-icon {
+  font-size: 1.5rem;
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #f1c40f; /* Color dorado cuando el icono es hover */
+}
+
+/* Estilos para el botón "Registrarme" */
+.btn-join {
+  padding: 10px 20px;
+  background-color: #f1c40f;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-join:hover {
+  background-color: #e67e22; /* Cambia de color al pasar el mouse */
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+  .footer {
+    grid-template-columns: 1fr; /* En pantallas pequeñas, el footer se apila en una sola columna */
+  }
+}

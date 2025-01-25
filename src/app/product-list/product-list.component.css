@@ -1,0 +1,94 @@
+/* Contenedor principal para los productos */
+.product-carousel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Distribuye las tarjetas en la fila */
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  /* Estilo de cada tarjeta de producto */
+  .product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 220px; /* Tamaño fijo para las tarjetas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    padding: 15px;
+  }
+  
+  /* Efecto de hover para las tarjetas */
+  .product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Estilo de la imagen del producto */
+  .product-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  /* Información del producto */
+  .product-info {
+    margin-bottom: 15px;
+  }
+  
+  .product-info p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .product-info .views {
+    font-size: 0.9rem;
+    color: #777;
+  }
+  
+  /* Botón de agregar al carrito */
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Corazón para favoritos */
+  .favorite {
+    font-size: 1.5rem;
+    color: #ff4081;
+    cursor: pointer;
+  }
+  
+  /* Cabecera de la sección de productos */
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .section-header a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .section-header a:hover {
+    color: #0056b3;
+  }
+  
