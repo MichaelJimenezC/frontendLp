@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Producto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .product-container {
+            display: flex;
+            align-items: flex-start;
+            max-width: 1000px;
+        }
+
+        .product-image-container {
+            flex: 1;
+        }
+
+        .product-image {
+            width: 300px;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .product-details-container {
+            flex: 2;
+            padding-left: 20px;
+        }
+
+        .product-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .product-price {
+            font-size: 20px;
+            color: #000000;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .product-description {
+            margin-bottom: 20px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .buy-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .buy-button:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="product-container">
+        <!-- Contenedor para la imagen -->
+        <div class="product-image-container">
+            <img src="Product.png" alt="Producto" class="product-image">
+        </div>
+        <!-- Contenedor para los detalles -->
+        <div class="product-details-container">
+            <h1 class="product-title">Nintendo Switch - OLED Model Splatoon 3 Special Edition</h1>
+            <p class="product-price">Desde $427</p>
+            <h3>Detalles del producto</h3>
+            <ul class="product-details-list">
+                <li>Idioma: Inglés</li>
+                <li>Dimensiones del producto: 3,93 x 8,25 x 10,22 pulgadas; 3,2 Libras</li>
+                <li>Número de modelo del producto: HEGSKCAAAA</li>
+                <li>Pilas: 3 Iones de litio necesaria(s), incluida(s)</li>
+                <li>Producto en amazon.com desde: agosto 15, 2022</li>
+                <li>Fabricante: Nintendo</li>
+                <li>
+                    Valoración promedio acerca del producto de nuestros clientes:
+                    <span class="rating">★★★★☆</span> 4.7 de 5 estrellas (2,299)
+                </li>
+            </ul>
+            <button class="buy-button">Añadir al carrito</button>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
