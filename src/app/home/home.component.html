@@ -104,7 +104,7 @@
   }
 
   .hero-image img {
-    max-width: 65%;
+    max-width: 55%;
     height: auto;
 
   }
@@ -514,6 +514,41 @@
     color: #f1c40f;
     /* Color dorado cuando el icono es hover */
   }
+  .category-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Para adaptarse a diferentes tamaños de pantalla */
+    gap: 20px; /* Espaciado entre los elementos */
+    text-align: center;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column; /* Apila la imagen encima del texto */
+    align-items: center;
+}
+
+.circle {
+    width: 100px; /* Tamaño del círculo */
+    height: 100px; /* Tamaño del círculo */
+    background-color: #d4f5e0; /* Fondo verde claro */
+    border-radius: 50%; /* Hace que sea un círculo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle img {
+    max-width: 70%; /* Ajusta el tamaño de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.category-item p {
+    margin-top: 10px; /* Espaciado entre el círculo y el texto */
+    font-size: 14px; /* Tamaño de la fuente */
+    color: #333; /* Color del texto */
+    font-weight: bold;
+}
 
   /* Estilos para el botón "Registrarme" */
   .btn-join {
@@ -576,7 +611,6 @@
     </div>
     <div class="hero-content">
       <h1>Todo lo que necesitas, en un solo lugar.</h1>
-      <p>
         Explora miles de productos, encuentra lo que amas y compra con un clic.
       </p>
       <button>Compra ahora</button>
@@ -584,17 +618,46 @@
   </div>
 
   <!-- Categorías -->
-  <div class="categories">
-    <h2>Explora todas las categorías</h2>
-    <p>Descubre lo que necesitas y más, todo en un solo lugar.</p>
-    <div class="category-list">
-      <div class="category-item">👕 Ropa</div>
-      <div class="category-item">💄 Maquillaje</div>
-      <div class="category-item">📱 Tecnología</div>
-      <div class="category-item">🔧 Ferretería</div>
-      <div class="category-item">🚗 Carros</div>
-      <div class="category-item">🎒 Accesorios</div>
+  <div class="category-list">
+    <div class="category-item">
+        <div class="circle">
+            <img src="https://i.postimg.cc/43L0k7h5/RECOMENDACIONES-8.png" alt="Ropa">
+        </div>
+        <p>Ropa</p>
     </div>
+    <div class="category-item">
+        <div class="circle">
+            <img src="https://i.postimg.cc/wMt0dwdx/Makeup-Kit-Products-PNG-Images-HD.png" alt="Maquillaje">
+        </div>
+        <p>Maquillaje</p>
+    </div>
+    <div class="category-item">
+        <div class="circle">
+            <img src="https://i.postimg.cc/Qxy30jLT/Electronic-Gadgets-PNG-Clipart-Background.png" alt="Tecnología">
+        </div>
+        <p>Tecnología</p>
+    </div>
+    <div class="category-item">
+        <div class="circle">
+            <img src="https://i.postimg.cc/BnNYHLN0/Tool-Icon-Transparent-File.png" alt="Ferretería">
+        </div>
+        <p>Ferretería</p>
+    </div>
+    <div class="category-item">
+        <div class="circle">
+            <img src="https://i.postimg.cc/fW66R9qq/Chrysler-Cars-Background-PNG-Image.png" alt="Carros">
+        </div>
+        <p>Carros</p>
+    </div>
+    <div class="category-item">
+        <div class="circle">
+            <img src="https://i.postimg.cc/Kv2JWrHb/RECOMENDACIONES-16.png" alt="Accesorios">
+        </div>
+        <p>Accesorios</p>
+    </div>
+</div>
+
+  
   </div>
   <app-product-list></app-product-list>
   <div class="join-section">
