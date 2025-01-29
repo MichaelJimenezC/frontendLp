@@ -23,4 +23,16 @@ export class ProductListComponent implements OnInit {
     console.log(this.seasonProducts);
     this.bestSellers = await this.productService.getBestSellers();
   }
+
+  addToCart(product: any): void {
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    cart.push(product);
+    localStorage.setItem('cart', JSON.stringify(cart));
+  
+    const goToCart = window.confirm('Producto agregado al carrito. ¿Quieres ir al carrito?');
+    if (goToCart) {
+      window.location.href = '/cart'; // Redirige al carrito
+    }
+  }
+  
 }
