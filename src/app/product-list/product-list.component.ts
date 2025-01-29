@@ -20,6 +20,6 @@ export class ProductListComponent implements OnInit {
     // Cargar productos al iniciar el componente
     this.seasonProducts =await  this.productService.getSeasonProducts();
     console.log(this.seasonProducts);
-    this.bestSellers = this.productService.getBestSellers();
+    this.bestSellers = await this.productService.getBestSellers();
   }
 }
