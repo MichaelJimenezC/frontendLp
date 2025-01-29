@@ -238,7 +238,7 @@
     /* Espaciado entre las columnas */
     align-items: center;
     /* Centra los elementos verticalmente */
-    padding: 40px 20px;
+    padding: 15px 20px;
     gap: 30px;
   }
 
@@ -246,7 +246,7 @@
   .join-column img {
     width: 100%;
     height: auto;
-    max-width: 600px;
+    max-width: 500px;
     /* Limita el tamaño máximo de la imagen */
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -254,8 +254,7 @@
 
   /* Estilo de la segunda columna (contenido) */
   .join-column .join-content {
-    max-width: 500px;
-    text-align: left;
+    text-align: lef;
   }
 
   .join-content h2 {
@@ -296,7 +295,6 @@
   .services-section h2 {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #333;
     margin-bottom: 10px;
   }
 
@@ -310,68 +308,67 @@
   .services-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    /* 2 columnas */
-    gap: 30px;
     justify-items: center;
-    margin-top: 20px;
   }
+  .services-section {
+  text-align: center;
+}
 
-  /* Estilo para cada servicio */
-  .service-item {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    width: 100%;
-    max-width: 250px;
-    /* Ancho máximo para que las tarjetas no sean demasiado grandes */
-    display: flex;
-    align-items: center;
-    /* Centra el contenido verticalmente */
-    gap: 15px;
-    /* Espacio entre el icono y el texto */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
+.services-section h2 {
+  font-size: 28px; /* Tamaño del título */
+  font-weight: bold;
+  color: #28a745; /* Color verde */
+  margin-bottom: 10px; /* Espacio debajo del título */
+}
+.services-section h1 {
+  font-size: 28px; /* Tamaño del título */
+  font-weight: bold;
+  color: #000000; /* Color verde */
+  margin-bottom: 10px; /* Espacio debajo del título */
+}
 
-  /* Efecto de hover para cada servicio */
-  .service-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  }
+.services-section p {
+  font-size: 18px; /* Tamaño del subtítulo */
+  color: #333; /* Color del texto */
+  margin-bottom: 30px; /* Espacio debajo del subtítulo */
+}
 
-  /* Estilo para el icono */
-  .service-icon {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-  }
+.services-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+  gap: 20px; /* Espaciado entre los elementos */
+  justify-content: center;
+  margin-top: 30px;
+}
 
-  /* Estilo para el texto dentro de cada servicio */
-  .service-text {
-    flex: 1;
-    text-align: left;
-  }
+.service-item {
+  display: flex;
+  align-items: center; /* Centra verticalmente la imagen y el texto */
+  background-color: #eef4ff; /* Fondo azul claro */
+  padding: 20px; /* Espaciado interno */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
 
-  .service-item h3 {
-    font-size: 1.6rem;
-    color: #333;
-    margin-bottom: 10px;
-  }
+.service-icon {
+  width: 40px; /* Tamaño del ícono */
+  height: 40px;
+  margin-right: 15px; /* Espaciado entre el ícono y el texto */
+}
 
-  .service-item p {
-    font-size: 1rem;
-    color: #555;
-    text-align: left;
-  }
+.service-text h3 {
+  font-size: 18px; /* Tamaño del texto del título */
+  font-weight: bold;
+  margin-bottom: 5px; /* Espaciado debajo del título */
+  color: #333;
+}
 
-  /* Ajuste para pantallas pequeñas */
-  @media (max-width: 768px) {
-    .services-list {
-      grid-template-columns: 1fr;
-      /* En pantallas pequeñas, los servicios se apilan en una sola columna */
-    }
-  }
+.service-text p {
+  font-size: 14px; /* Tamaño del texto */
+  color: #555; /* Color gris */
+  margin: 0; /* Elimina márgenes adicionales */
+}
+
 
   /* Estilos para la sección de "Opiniones de los Clientes" */
   .reviews-section {
@@ -586,6 +583,7 @@
       /* En pantallas pequeñas, el footer se apila en una sola columna */
     }
   }
+  
 </style>
 <div class="home">
   <!-- Barra superior -->
@@ -676,10 +674,9 @@
 
 </div>
 <app-product-list></app-product-list>
-<div class="join-section">
+<div class="join-section"> 
   <div class="join-column">
-    <img src="https://i.postimg.cc/WpDy7gns/istockphoto-1434715649-612x612.jpg" alt="Imagen de promoción"
-      class="join-image">
+    <img src="https://i.postimg.cc/WpDy7gns/istockphoto-1434715649-612x612.jpg" alt="Imagen de promoción" class="join-image">
   </div>
   <div class="join-column">
     <div class="join-content">
@@ -689,47 +686,49 @@
     </div>
   </div>
 </div>
+
 <div class="services-section">
   <h2>Nuestros Servicios</h2>
-  <p>Qué hacemos por nuestros clientes</p>
+  <h1>¿Qué hacemos por nuestros clientes?</h1>
   <div class="services-list">
     <div class="service-item">
-      <img src="assets/pago-seguro-icon.png" alt="Pago Seguro" class="service-icon">
+      <img src="https://i.postimg.cc/Hs1yk2qh/social.png" alt="Pago Seguro" class="service-icon">
       <div class="service-text">
         <h3>Pago Seguro</h3>
         <p>Ofrecemos métodos de pago seguros para tu tranquilidad.</p>
       </div>
     </div>
     <div class="service-item">
-      <img src="assets/verificacion-icon.png" alt="Verificación de Vendedores" class="service-icon">
+      <img src="https://i.postimg.cc/vZ3gXdcJ/seguro-de-vida.png" alt="Verificación de Vendedores" class="service-icon">
       <div class="service-text">
         <h3>Verificación de Vendedores</h3>
         <p>Todos nuestros vendedores están verificados para garantizar calidad.</p>
       </div>
     </div>
     <div class="service-item">
-      <img src="assets/asistencia-icon.png" alt="Asistencia Online" class="service-icon">
+      <img src="https://i.postimg.cc/BZTvMGzm/atencion-al-cliente.png" alt="Asistencia Online" class="service-icon">
       <div class="service-text">
         <h3>Asistencia Online</h3>
-        <p>Disponibilidad de soporte al cliente en todo momento.</p>
+        <p>Disponibilidad de soporte al cliente en todo momento 24/7.</p>
       </div>
     </div>
     <div class="service-item">
-      <img src="assets/envios-icon.png" alt="Envíos a Todo México" class="service-icon">
+      <img src="https://i.postimg.cc/ZKJ5QMt4/enviado.png" alt="Envíos a Todo México" class="service-icon">
       <div class="service-text">
-        <h3>Envíos a Todo México</h3>
-        <p>Realizamos envíos rápidos y seguros a todo el país.</p>
+        <h3>Envíos a Todo Ecuador</h3>
+        <p>Realizamos envíos rápidos y seguros a todo el país durante 365 días.</p>
       </div>
     </div>
   </div>
 </div>
+
 
 <div class="reviews-section">
   <h2>¿Qué dicen nuestros clientes?</h2>
   <p>Conoce las experiencias de nuestros usuarios</p>
   <div class="reviews-list">
     <div class="review-card">
-      <img src="assets/client1.jpg" alt="Cliente 1" class="client-photo">
+      <img src="https://i.postimg.cc/gcsWxcQb/empresaria-confiada-sonriente-que-presenta-brazos-cruzados-1262-20950-1.jpg" alt="Cliente 1" class="client-photo">
       <div class="review-text">
         <p class="review">"Me encanta la facilidad de uso de la plataforma, ¡es muy intuitiva!"</p>
         <div class="stars">⭐⭐⭐⭐⭐</div>
@@ -737,7 +736,7 @@
       </div>
     </div>
     <div class="review-card">
-      <img src="assets/client2.jpg" alt="Cliente 2" class="client-photo">
+      <img src="https://i.postimg.cc/FsnXxWhP/joven-empresaria-sonriendo-camara-74855-1682.avif" alt="Cliente 2" class="client-photo">
       <div class="review-text">
         <p class="review">"Un servicio excelente y muy rápido. ¡Altamente recomendable!"</p>
         <div class="stars">⭐⭐⭐⭐⭐</div>
@@ -745,7 +744,7 @@
       </div>
     </div>
     <div class="review-card">
-      <img src="assets/client3.jpg" alt="Cliente 3" class="client-photo">
+      <img src="https://i.postimg.cc/TwdkmWPv/istockphoto-1364917563-612x612.jpg" alt="Cliente 3" class="client-photo">
       <div class="review-text">
         <p class="review">"Gran experiencia de compra. Todo llegó en perfectas condiciones."</p>
         <div class="stars">⭐⭐⭐⭐⭐</div>
