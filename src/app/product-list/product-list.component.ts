@@ -16,9 +16,10 @@ export class ProductListComponent implements OnInit {
 
   constructor(private productService: ProductService) {}
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     // Cargar productos al iniciar el componente
-    this.seasonProducts = this.productService.getSeasonProducts();
+    this.seasonProducts =await  this.productService.getSeasonProducts();
+    console.log(this.seasonProducts);
     this.bestSellers = this.productService.getBestSellers();
   }
 }

@@ -4,23 +4,30 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ProductService {
+  baseUrl: string = 'http://localhost/backend/public/';
 
   constructor() { }
 
   // Este método simula una llamada a una API
-  getSeasonProducts() {
-    return [
-      { img: "assets/product1.png", views: "100k", seller: "ALS STORE", price: "MEX $15.00" },
-      { img: "assets/product2.png", views: "5.0k", seller: "Carlos Pasa", price: "MEX $18.00" },
-      { img: "assets/product3.png", views: "20k", seller: "Tiendas XYZ", price: "MEX $25.00" }
-    ];
+  async getSeasonProducts(): Promise<any[]> {
+    const response = await fetch(this.baseUrl+'products');
+    const products: any[] = await response.json();  // Obtener los productos en formato JSON y asegurarnos que sea un arreglo
+  
+    // Transformamos los productos a la estructura requerida
+    const formattedProducts = products.map((product: any) => ({
+      img: `assets/product${product.id}.png`,  // Aquí debes ajustar la lógica para obtener las imágenes
+      views: '100k',  // Este dato no está en la API, puedes reemplazarlo con algo real si lo necesitas
+      seller: product.user?.name || 'ALS STORE',  // Aquí tomamos el nombre del vendedor desde la API (si está disponible)
+      price: `MEX $${product.price}`  // Utilizamos el precio de la API
+    }));
+  
+    return formattedProducts;
   }
+  
 
   getBestSellers() {
     return [
-      { img: "assets/product4.png", views: "10k", seller: "Store 123", price: "MEX $12.00" },
-      { img: "assets/product5.png", views: "200k", seller: "SuperStore", price: "MEX $30.00" },
-      { img: "assets/product6.png", views: "50k", seller: "El Buen Precio", price: "MEX $22.00" }
+     
     ];
   }
 }
