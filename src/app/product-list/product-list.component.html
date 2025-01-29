@@ -8,15 +8,24 @@
         </div>
         <div class="product-carousel">
           <div *ngFor="let product of seasonProducts" class="product-card">
+            <a [routerLink]="['/product', product.id]">
+
             <img [src]="product.img" alt="Producto" class="product-image">
             <div class="product-info">
               <p class="views">👁 {{ product.views }}</p>
               <p>Vendido por: {{ product.seller }}</p>
               <p>Precio: {{ product.price }}</p>
             </div>
+            <a [routerLink]="['/cart']">
+
             <button>Agregar al carrito</button>
+          </a>
+
             <span class="favorite">❤️</span>
+          </a>
           </div>
+        
+
         </div>
       </div>
   
@@ -34,7 +43,11 @@
               <p>Vendido por: {{ product.seller }}</p>
               <p>Precio: {{ product.price }}</p>
             </div>
+            <a [routerLink]="['/cart']">
+
             <button>Agregar al carrito</button>
+          </a>
+
             <span class="favorite">❤️</span>
           </div>
         </div>

@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { CommonModule } from '@angular/common';  // Importa CommonModule
+import { RouterLink } from '@angular/router'; // Importa RouterLink
 
 @Component({
   selector: 'app-product-list',
   standalone: true,  // Definimos HomeComponent como standalone si es necesario
-  imports: [CommonModule],  // Importa CommonModule para usar *ngFor
+  imports: [CommonModule,RouterLink],  // Importa CommonModule para usar *ngFor
 
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
