@@ -1,106 +1,279 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalles del Producto</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+<style>
+    /* Estilos generales */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #ffffff;
+    }
 
-        .product-container {
-            display: flex;
-            align-items: flex-start;
-            max-width: 1000px;
-        }
+    .product-container {
+      display: flex;
+      margin: auto;
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+    }
 
-        .product-image-container {
-            flex: 1;
-        }
+    .product-image {
+      flex: 1;
+      text-align: center;
+      padding: 20px;
+    }
 
-        .product-image {
-            width: 300px;
-            height: auto;
-            object-fit: cover;
-        }
+    .product-image img {
+      max-width: 70%;
+      border-radius: 10px;
+    }
 
-        .product-details-container {
-            flex: 2;
-            padding-left: 20px;
-        }
+    .product-details {
+      flex: 1.5;
+      padding: 20px;
+    }
 
-        .product-title {
-            font-size: 24px;
-            margin-bottom: 10px;
-            color: #333;
-        }
+    .views {
+      font-size: 14px;
+      color: #666;
+    }
 
-        .product-price {
-            font-size: 20px;
-            color: #000000;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
+    .product-details h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
 
-        .product-description {
-            margin-bottom: 20px;
-            color: #555;
-            line-height: 1.6;
-        }
+    .product-details h2 {
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 20px;
+    }
 
-        .buy-button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    .product-info,
+    .vendor-info {
+      margin-bottom: 20px;
+    }
 
-        .buy-button:hover {
-            background-color: #0056b3;
-        }
+    .product-info h3,
+    .vendor-info h3 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
 
-    </style>
-</head>
-<body>
-    <div class="product-container">
-        <!-- Contenedor para la imagen -->
-        <div class="product-image-container">
-            <img src="Product.png" alt="Producto" class="product-image">
-        </div>
-        <!-- Contenedor para los detalles -->
-        <div class="product-details-container">
-            <h1 class="product-title">Nintendo Switch - OLED Model Splatoon 3 Special Edition</h1>
-            <p class="product-price">Desde $427</p>
-            <h3>Detalles del producto</h3>
-            <ul class="product-details-list">
-                <li>Idioma: Inglés</li>
-                <li>Dimensiones del producto: 3,93 x 8,25 x 10,22 pulgadas; 3,2 Libras</li>
-                <li>Número de modelo del producto: HEGSKCAAAA</li>
-                <li>Pilas: 3 Iones de litio necesaria(s), incluida(s)</li>
-                <li>Producto en amazon.com desde: agosto 15, 2022</li>
-                <li>Fabricante: Nintendo</li>
-                <li>
-                    Valoración promedio acerca del producto de nuestros clientes:
-                    <span class="rating">★★★★☆</span> 4.7 de 5 estrellas (2,299)
-                </li>
-            </ul>
+    .message-box {
+      display: flex;
+      margin-bottom: 20px;
+    }
 
-            <button class="buy-button" (click)="addToCart(product)">Añadir al carrito</button>
-        </div>
+    .message-box input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px 0 0 5px;
+    }
+
+    .message-box .send-button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+
+    .payment-methods {
+      margin-bottom: 20px;
+    }
+
+    .payment-methods img {
+      max-width: 40%;
+    }
+
+    .quantity-section {
+      margin-bottom: 20px;
+    }
+
+    .quantity-section label {
+      font-size: 14px;
+      margin-right: 10px;
+    }
+
+    .quantity-controls {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .quantity-controls button {
+      background-color: #ddd;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .quantity-controls input {
+      width: 40px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .action-buttons .add-to-cart,
+    .action-buttons .buy-now {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .action-buttons .add-to-cart {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .action-buttons .buy-now {
+      background-color: #ff4d4d;
+      color: white;
+    }
+
+    .action-buttons .favorite {
+      background-color: transparent;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Estilos de las pestañas */
+    .tabs-container {
+      margin-top: 30px;
+      padding: 20px;
+      border-top: 1px solid #ddd;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .tabs-header {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .tab {
+      background: none;
+      border: none;
+      font-size: 16px;
+      font-weight: bold;
+      color: #aaa;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .tab.active {
+      color: black;
+    }
+
+    .tab.active::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: black;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+    }
+
+    .tabs-content {
+      text-align: center;
+    }
+
+    .tab-content {
+      display: none;
+      font-size: 16px;
+      color: #555;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+  <div class="product-container">
+    <div class="product-image">
+      <img src="https://i.postimg.cc/ZqhCHKcK/iphone11.jpg" alt="iPhone 11">
     </div>
-</body>
-</html>
+    <div class="product-details">
+      <p class="views">👁 Vistas: 160k</p>
+      <h1>iPhone 11 - Tecnología Avanzada</h1>
+      <h2>MEX 25.000</h2>
+      <div class="product-info">
+        <h3>Detalles del producto:</h3>
+        <p><strong>Dimensiones:</strong> 5.5 x 10 cm</p>
+        <p><strong>Categoría:</strong> Tecnología</p>
+        <p><strong>Color:</strong> Blanco</p>
+      </div>
+      <div class="vendor-info">
+        <h3>Sobre el Vendedor:</h3>
+        <p><strong>Nombre:</strong> Apple México</p>
+        <p><strong>Ubicación:</strong> Ciudad de México, México</p>
+        <p><strong>Se unió:</strong> 2021</p>
+      </div>
+      <h3>Envíale un mensaje al vendedor</h3>
+      <div class="message-box">
+        <input type="text" placeholder="Escribe tu Mensaje">
+        <button class="send-button">📧</button>
+      </div>
+      <div class="payment-methods">
+        <p>Paga con</p>
+        <img src="https://i.postimg.cc/gJ7pMgWq/metodos-de-pagos.png" alt="Métodos de pago">
+      </div>
+      <div class="quantity-section">
+        <label for="quantity">Cantidad</label>
+        <div class="quantity-controls">
+          <button>-</button>
+          <input id="quantity" type="text" value="01">
+          <button>+</button>
+        </div>
+      </div>
+      <div class="action-buttons">
+        <button class="add-to-cart">Add to Cart</button>
+        <button class="buy-now">Buy Now</button>
+        <button class="favorite">❤️</button>
+      </div>
+    </div>
+  </div>
 
+  <div class="tabs-container">
+    <div class="tabs-header">
+      <button class="tab active" onclick="showTab('description')">Descripción</button>
+      <button class="tab" onclick="showTab('reviews')">Reseñas</button>
+    </div>
+    <div class="tabs-content">
+      <div id="description" class="tab-content active">
+        <p>Conoce la nueva tecnología de Apple, prueba su nuevo modelo con una cámara profesional. ¿Qué esperas para probar este nuevo modelo?</p>
+      </div>
+      <div id="reviews" class="tab-content">
+        <p>No hay reseñas disponibles por el momento.</p>
+      </div>
+    </div>
+  </div>
 
+  <script>
+    function showTab(tabId) {
+      const tabs = document.querySelectorAll('.tab');
+      const contents = document.querySelectorAll('.tab-content');
 
+      tabs.forEach((tab) => {
+        tab.classList.remove('active');
+      });
+
+      contents.forEach((content) => {
+        content.classList.remove('active');
+      });
+
+      document.querySelector(`#${tabId}`).classList.add('active');
+      document.querySelector(`.tab[onclick="showTab('${tabId}')"]`).classList.add('active');
+    }
+  </script>
