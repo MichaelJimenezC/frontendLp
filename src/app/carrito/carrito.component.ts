@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-carrito',
@@ -14,7 +15,7 @@ export class CarritoComponent implements OnInit {
   total: number = 0;
   shippingCost: number = 0;
   
-  constructor() { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit() {
     this.loadCart();
@@ -95,4 +96,29 @@ export class CarritoComponent implements OnInit {
     this.shippingCost = cost;
     this.calculateCart(); // Recalcular el carrito después de cambiar el envío
   }
+  realizarPago(): void {
+    const userId = localStorage.getItem('userId');
+
+    if (!userId) {
+      alert('Debes iniciar sesión para realizar el pago.');
+      return;
+    }
+
+    this.productService.pagar({
+      user_id: userId,
+      products: this.cartItems, // Corregido (antes estaba `this.carrito`)
+      total: this.total // Usamos `this.total` en vez de `this.calcularTotal()`
+    })
+    .then(response => {
+      console.log('Pago exitoso:', response);
+      alert('Pago realizado con éxito');
+      this.cartItems = []; // Vaciar el carrito tras el pago exitoso
+      localStorage.removeItem('cart'); // Limpiar el carrito en localStorage
+    })
+    .catch(error => {
+      console.error('Error en el pago:', error);
+      alert('Hubo un error al procesar el pago.');
+    });
+  }
+
 }

@@ -87,4 +87,21 @@ export class ProductService {
     const data = await response.json();
     return data; // Retorna la respuesta que te dé el backend (usuario creado, mensaje de éxito, etc.)
   }
+  async pagar(order: any): Promise<any> {
+    const response = await fetch(this.baseUrl + 'pagar', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(order),
+    });
+  
+    if (!response.ok) {
+      throw new Error('Error al procesar el pago');
+    }
+  
+    const data = await response.json();
+    return data; // Respuesta del backend
+  }
+  
 }

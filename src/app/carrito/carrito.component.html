@@ -307,6 +307,6 @@ input#expiryDate {
             <span>Total a pagar:</span>
             <span>{{ total | currency }}</span>
         </div>
-        <button class="action-btn2" style="width: 100%; margin-top: 20px;">Pagar</button>
+        <button class="action-btn2" style="width: 100%; margin-top: 20px;" (click)="realizarPago()">Pagar</button>
     </div>
 </div>
