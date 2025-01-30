@@ -164,7 +164,7 @@
     </div>
 
     <!-- Resumen del carrito -->
-    <div class="summary-container">
+    <div *ngFor="let product of seasonProducts" class="summary-container">
         <div>
             <h2>Envío a Guayaquil</h2>
             <form>
