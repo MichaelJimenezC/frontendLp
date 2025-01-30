@@ -180,15 +180,15 @@
         <h2>Resumen del carrito</h2>
         <div class="summary-item">
             <span>Total de artículos:</span>
-            <span>{{ getTotalItems() }}</span>
+            <span>{{ totalItems () }}</span>
         </div>
         <div class="summary-item">
             <span>Subtotal:</span>
-            <span>{{ getSubtotal() | currency }}</span>
+            <span>{{ subtotal | currency }}</span>
         </div>
         <div class="summary-item">
             <span>Impuestos (15% IVA):</span>
-            <span>{{ getTax() | currency }}</span>
+            <span>{{ tax  | currency }}</span>
         </div>
         <div class="summary-item">
             <span>Envío y gestión:</span>
@@ -197,7 +197,7 @@
         <hr />
         <div class="summary-item summary-total">
             <span>Total a pagar:</span>
-            <span>{{ getTotal() | currency }}</span>
+            <span>{{ total  | currency }}</span>
         </div>
         <button class="action-btn2" style="width: 100%; margin-top: 20px;">Pagar</button>
     </div>
