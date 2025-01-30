@@ -200,25 +200,23 @@
       display: block;
     }
   </style>
-  <div class="product-container">
+<div class="product-container">
     <div class="product-image">
       <img src="https://i.postimg.cc/ZqhCHKcK/iphone11.jpg" alt="iPhone 11">
     </div>
     <div class="product-details">
-      <p class="views">👁 Vistas: 160k</p>
-      <h1>iPhone 11 64GB</h1>
-      <h2>$ 200.00</h2>
+      <p class="views">👁 {{ product.views }}</p>
+      <h1>{{ product.description }}</h1>
+      <h2>{{ product.price }}</h2>
       <div class="product-info">
         <h4>Detalles del producto:</h4>
-        <p><strong>Dimensiones:</strong> 5.5 x 10 cm</p>
-        <p><strong>Categoría:</strong> Tecnología</p>
-        <p><strong>Color:</strong> Blanco</p>
+        <p><strong>Nombre:</strong>{{ product.name }}</p>
+        <p><strong>Categoría:</strong> {{ product.category }}</p>
+        <p><strong>Fecha publicación:</strong>{{ product.fecha }}</p>
       </div>
       <div class="vendor-info">
         <h3>Sobre el Vendedor:</h3>
-        <p><strong>Nombre:</strong> Apple México</p>
-        <p><strong>Ubicación:</strong> Ciudad de México, México</p>
-        <p><strong>Se unió:</strong> 2021</p>
+        <p><strong>Nombre:</strong>{{ product.seller }}</p>
       </div>
       <h3>Envíale un mensaje al vendedor</h3>
       <div class="message-box">
@@ -243,9 +241,9 @@
         <button class="favorite">❤️</button>
       </div>
     </div>
-  </div>
 
-  <div class="tabs-container">
+</div>
+<div class="tabs-container">
     <div class="tabs-header">
       <button class="tab active" onclick="showTab('description')">Descripción</button>
       <button class="tab" onclick="showTab('reviews')">Reseñas</button>
@@ -260,20 +258,20 @@
     </div>
   </div>
 
-  <script>
-    function showTab(tabId) {
-      const tabs = document.querySelectorAll('.tab');
-      const contents = document.querySelectorAll('.tab-content');
+<script>
+  function showTab(tabId) {
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
 
-      tabs.forEach((tab) => {
-        tab.classList.remove('active');
-      });
+    tabs.forEach((tab) => {
+      tab.classList.remove('active');
+    });
 
-      contents.forEach((content) => {
-        content.classList.remove('active');
-      });
+    contents.forEach((content) => {
+      content.classList.remove('active');
+    });
 
-      document.querySelector(`#${tabId}`).classList.add('active');
-      document.querySelector(`.tab[onclick="showTab('${tabId}')"]`).classList.add('active');
-    }
-  </script>
+    document.querySelector(`#${tabId}`).classList.add('active');
+    document.querySelector(`.tab[onclick="showTab('${tabId}')"]`).classList.add('active');
+  }
+</script>
