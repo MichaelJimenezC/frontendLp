@@ -152,14 +152,6 @@
                     <p class="product-description">
                         {{ product.description }}
                     </p>
-                    <span class="current-price">US$ 200.00</span>
-                    <p class="product-description">
-                        Iphone 11 64GB
-                    </p>
-                    <div>
-                        <p class="product-description">Peso: 2.5 </p>
-                        <strong class="product-stock">En stock - Envío habitual en 24 horas</strong>
-                    </div>
                     <div class="product-actions">
                         <input type="number" value="1" class="product-quantity" />
                         <button class="action-btn">Guardar</button>
@@ -200,8 +192,6 @@
         <div class="summary-item">
             <span>Total de artículos</span>
             <span>US$ {{ product.price }}</span>
-            <span>Total de artículos(3 uds)</span>
-            <span>US$ 200.00</span>
         </div>
         <div class="summary-item">
             <span>Envío y gestión</span>
@@ -210,13 +200,11 @@
         <div class="summary-item">
             <span>Impuestos sobre rentas:</span>
             <span>USD$(15%) {{ product.price }}</span>
-            <span>USD$(15%) 30</span>
         </div>
         <hr />
         <div class="summary-item summary-total">
             <span>Total:</span>
             <span>US$ {{ product.price }}</span>
-            <span>US$ 230.00</span>
         </div>
         <button class="action-btn2" style="width: 100%; margin-top: 20px;">Pagar</button>
     </div>
