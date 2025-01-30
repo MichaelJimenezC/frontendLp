@@ -4,6 +4,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { CarritoComponent } from './carrito/carrito.component'; // Importa el componente Carrito
 import { LoginComponent } from './login/login.component'; // Importa el componente Login
 import { RegisterComponent } from './register/register.component'; // Importa el componente Login
+import { SubirComponent } from './subir/subir.component'; // Importa el componente Login
 
 export const routes: Routes = [
   { path: '', component: HomeComponent }, // Ruta raíz para Home
@@ -11,4 +12,6 @@ export const routes: Routes = [
   { path: 'cart', component: CarritoComponent }, // Ruta para el carrito
   { path: 'login', component: LoginComponent }, // Ruta para el login
   { path: 'register', component: RegisterComponent },
+  { path: 'subir', component: SubirComponent },
+
 ];
