@@ -200,23 +200,23 @@
       display: block;
     }
   </style>
-  <div class="product-container">
+<div class="product-container">
     <div class="product-image">
       <img src="https://i.postimg.cc/ZqhCHKcK/iphone11.jpg" alt="iPhone 11">
     </div>
     <div *ngFor="let product of seasonProducts" class="product-details">
       <p class="views">👁 {{product.views}}</p>
-      <h1>{{product.description}}/<h1>
+      <h1>{{product.description}}</h1>
       <h2>{{product.price}}</h2>
       <div class="product-info">
         <h4>Detalles del producto:</h4>
-        <p><strong>Nombre:</strong>{{product.name}}</p>
+        <p><strong>Nombre:</strong> {{product.name}}</p>
         <p><strong>Categoría:</strong> Tecnología</p>
       </div>
       <div class="vendor-info">
         <h3>Sobre el Vendedor:</h3>
         <p><strong>Nombre:</strong> {{product.seller}}</p>
-        <p><strong>Usuario:</strong>{{product.user}}</p>
+        <p><strong>Usuario:</strong> {{product.user}}</p>
       </div>
       <h3>Envíale un mensaje al vendedor</h3>
       <div class="message-box">
@@ -257,20 +257,22 @@
     </div>
   </div>
 
-  <script>
-    function showTab(tabId) {
-      const tabs = document.querySelectorAll('.tab');
-      const contents = document.querySelectorAll('.tab-content');
+</div> <!-- ✅ Se agregó el cierre de <div class="product-container"> -->
 
-      tabs.forEach((tab) => {
-        tab.classList.remove('active');
-      });
+<script>
+  function showTab(tabId) {
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
 
-      contents.forEach((content) => {
-        content.classList.remove('active');
-      });
+    tabs.forEach((tab) => {
+      tab.classList.remove('active');
+    });
 
-      document.querySelector(`#${tabId}`).classList.add('active');
-      document.querySelector(`.tab[onclick="showTab('${tabId}')"]`).classList.add('active');
-    }
-  </script>
+    contents.forEach((content) => {
+      content.classList.remove('active');
+    });
+
+    document.querySelector(`#${tabId}`).classList.add('active');
+    document.querySelector(`.tab[onclick="showTab('${tabId}')"]`).classList.add('active');
+  }
+</script>
