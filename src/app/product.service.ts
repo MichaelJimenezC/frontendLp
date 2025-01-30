@@ -47,26 +47,25 @@ export class ProductService {
 
   // Método para hacer login
   async login(username: string, password: string): Promise<any> {
-    const response = await fetch(this.baseUrl + 'login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        username: username,
-        password: password
-      })
-    });
-
-    // Verifica si la respuesta es correcta (status 200)
-    if (!response.ok) {
-      throw new Error('Error al iniciar sesión');
+    // Simulación del usuario registrado
+    const fakeUser = {
+      id: 2,
+      email: 'jeampierejimenez@gmail.com',
+      password: 'Micha12el'
+    };
+  
+    // Validamos las credenciales
+    if (username === fakeUser.email && password === fakeUser.password) {
+      // Guardamos el ID en localStorage
+      localStorage.setItem('userId', fakeUser.id.toString());
+      console.log('Login exitoso, ID guardado en localStorage:', fakeUser.id);
+      return { message: 'Login exitoso', userId: fakeUser.id };
+    } else {
+      throw new Error('Credenciales incorrectas');
     }
-
-    const data = await response.json();
-    return data; // Retorna la respuesta que te dé el backend (token, usuario, etc.)
   }
-
+  
+  
   // Método para hacer registro
   async register(username: string, password: string): Promise<any> {
     const response = await fetch(this.baseUrl + 'register', {

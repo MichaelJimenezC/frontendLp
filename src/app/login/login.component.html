@@ -15,8 +15,10 @@
           La contraseña es requerida y debe tener al menos 6 caracteres.
         </div>
       </div>
-  
-      <button type="submit" [disabled]="loginForm.invalid">Iniciar sesión</button>
+      <button type="submit" [disabled]="loginForm.invalid" [routerLink]="['/']">
+        Iniciar sesión
+      </button>
+
 
       <!-- Link para ir al registro -->
       <p class="register-text">
