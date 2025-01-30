@@ -130,6 +130,76 @@
     .secondary-label {
         padding-left: 24px;
     }
+    /* Contenedores principales */
+.shipping-container, .payment-container {
+    background: #ffffff;  /* Color de fondo ligero */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #000000;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Estilo de los formularios */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Etiquetas */
+label {
+    font-weight: bold;
+    margin: 10px 0 5px;
+    font-size: 0.95em;
+    color: #555;
+}
+
+/* Campos de entrada */
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%;
+    outline: none;
+    transition: border 0.3s ease-in-out;
+}
+
+/* Efecto cuando el usuario hace clic en un input */
+input:focus {
+    border: 1px solid #007bff;
+    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Espaciado entre los elementos */
+input:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+/* Para los campos pequeños como CVV y Fecha de Expiración */
+input#cvv, input#expiryDate {
+    width: 48%;
+    display: inline-block;
+}
+
+/* Espaciado en los inputs de pago */
+input#expiryDate {
+    margin-right: 4%;
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+    .shipping-container, .payment-container {
+        width: 90%;
+    }
+}
+
 </style>
 
 <div class="main-container">
@@ -148,13 +218,48 @@
                     </p>
                     <div class="product-actions">
                         <input type="number" [value]="product.quantity" min="1" class="product-quantity"
-                               (change)="updateQuantity(product, $event)" />
+                            (change)="updateQuantity(product, $event)" />
                         <button class="action-btn" (click)="removeFromCart1(product)">Eliminar</button>
                     </div>
                 </div>
             </div>
 
         </div>
+        <div class="shipping-container">
+
+            <h2>Dirección de Envío</h2>
+            <form>
+                <label for="fullName">Nombre Completo:</label>
+                <input type="text" id="fullName" placeholder="Ej. Juan Pérez" required />
+
+                <label for="address">Dirección:</label>
+                <input type="text" id="address" placeholder="Calle 123, Av. Principal" required />
+
+                <label for="city">Ciudad:</label>
+                <input type="text" id="city" placeholder="Guayaquil" required />
+
+                <label for="postalCode">Código Postal:</label>
+                <input type="text" id="postalCode" placeholder="090101" required />
+            </form>
+        </div>
+        <div class="payment-container">
+
+            <h2>Método de Pago</h2>
+            <form>
+                <label for="cardNumber">Número de Tarjeta:</label>
+                <input type="text" id="cardNumber" placeholder="1234 5678 9101 1121" required />
+
+                <label for="cardName">Nombre en la Tarjeta:</label>
+                <input type="text" id="cardName" placeholder="Juan Pérez" required />
+
+                <label for="expiryDate">Fecha de Expiración:</label>
+                <input type="text" id="expiryDate" placeholder="MM/YY" required />
+
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" placeholder="123" required />
+            </form>
+        </div>
+
     </div>
 
     <!-- Resumen del carrito -->
@@ -188,7 +293,7 @@
         </div>
         <div class="summary-item">
             <span>Impuestos (15% IVA):</span>
-            <span>{{ tax  | currency }}</span>
+            <span>{{ tax | currency }}</span>
         </div>
         <div class="summary-item">
             <span>Envío y gestión:</span>
@@ -197,7 +302,7 @@
         <hr />
         <div class="summary-item summary-total">
             <span>Total a pagar:</span>
-            <span>{{ total  | currency }}</span>
+            <span>{{ total | currency }}</span>
         </div>
         <button class="action-btn2" style="width: 100%; margin-top: 20px;">Pagar</button>
     </div>
