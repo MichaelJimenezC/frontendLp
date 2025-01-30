@@ -199,6 +199,98 @@
     .tab-content.active {
       display: block;
     }
+
+        /* Estilos de pestañas */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            border-bottom: 2px solid #ddd;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 18px;
+            border: none;
+            background: none;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .tab.active {
+            font-weight: bold;
+        }
+
+        /* Contenido de las pestañas */
+        .tab-content {
+            display: none;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #ffffff;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Formulario de reseñas */
+        .review-form {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        .review-form input, .review-form textarea, .review-form button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .review-form button {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .review-form button:hover {
+            background-color: #218838;
+        }
+
+        /* Lista de reseñas */
+        .reviews-list {
+            margin-top: 15px;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+        }
+
+        .review {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        .review:last-child {
+            border-bottom: none;
+        }
+
+        .review strong {
+            display: block;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .review p {
+            font-size: 14px;
+            color: #555;
+        }
+
   </style>
 <div class="product-container">
     <div class="product-image">
@@ -243,26 +335,85 @@
     </div>
 
 </div>
-<div class="tabs-container">
-    <div class="tabs-header">
-      <button class="tab" 
-              [class.active]="activeTab === 'description'" 
-              (click)="showTab('description')">
-        Descripción
-      </button>
-      <button class="tab" 
-              [class.active]="activeTab === 'reviews'" 
-              (click)="showTab('reviews')">
-        Reseñas
-      </button>
-    </div>
-    <div class="tabs-content">
-      <div id="description" class="tab-content" [class.active]="activeTab === 'description'">
+  <!-- Pestañas -->
+  <div class="tabs">
+    <button class="tab active" onclick="changeTab('description')">Descripción</button>
+    <button class="tab" onclick="changeTab('reviews')">Reseñas</button>
+</div>
+
+<!-- Contenido de las pestañas -->
+<div class="tabs-content">
+    <!-- Descripción del producto -->
+    <div id="description" class="tab-content active">
         <p>Conoce la nueva tecnología de Apple, prueba su nuevo modelo con una cámara profesional. ¿Qué esperas para probar este nuevo modelo?</p>
-      </div>
-      <div id="reviews" class="tab-content" [class.active]="activeTab === 'reviews'">
-        <p>No hay reseñas disponibles por el momento.</p>
-      </div>
+    </div>
+
+    <!-- Sección de reseñas -->
+    <div id="reviews" class="tab-content">
+        <p id="no-reviews">No hay reseñas disponibles por el momento.</p>
+        
+        <!-- Formulario para agregar reseñas -->
+        <div class="review-form">
+            <h3>Escribe tu reseña:</h3>
+            <input type="text" id="reviewer-name" placeholder="Tu nombre" required>
+            <textarea id="review-text" rows="3" placeholder="Escribe tu reseña aquí..." required></textarea>
+            <button onclick="addReview()">Publicar reseña</button>
+        </div>
+
+        <!-- Lista donde se mostrarán las reseñas -->
+        <div class="reviews-list" id="reviews-list"></div>
     </div>
 </div>
+
+<script>
+    // Función para cambiar entre pestañas
+    function changeTab(tabName) {
+        // Ocultar todas las pestañas
+        document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.classList.remove('active');
+        });
+
+        // Desactivar todas las pestañas en la barra
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.classList.remove('active');
+        });
+
+        // Activar la pestaña seleccionada
+        document.getElementById(tabName).classList.add('active');
+
+        // Marcar la pestaña en la barra como activa
+        document.querySelector(`.tab[onclick="changeTab('${tabName}')"]`).classList.add('active');
+    }
+
+    // Función para agregar una reseña
+    function addReview() {
+        // Obtener los valores de los inputs
+        const name = document.getElementById("reviewer-name").value.trim();
+        const text = document.getElementById("review-text").value.trim();
+
+        if (name === "" || text === "") {
+            alert("Por favor, completa todos los campos.");
+            return;
+        }
+
+        // Crear un nuevo elemento de reseña
+        const reviewElement = document.createElement("div");
+        reviewElement.classList.add("review");
+        reviewElement.innerHTML = `<strong>${name}</strong><p>${text}</p>`;
+
+        // Agregar la reseña a la lista
+        const reviewsList = document.getElementById("reviews-list");
+        reviewsList.prepend(reviewElement);
+
+        // Limpiar los campos del formulario
+        document.getElementById("reviewer-name").value = "";
+        document.getElementById("review-text").value = "";
+
+        // Remover el mensaje de "No hay reseñas disponibles" si es la primera reseña
+        const noReviewsMsg = document.getElementById("no-reviews");
+        if (noReviewsMsg) {
+            noReviewsMsg.remove();
+        }
+    }
+</script>
 
