@@ -1,3 +1,8 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carrito de compras</title>
+</head>
 <style>
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -12,10 +17,13 @@
         margin: 20px auto;
         gap: 20px;
         padding: 8px;
+        align-items: flex-start;
     }
 
     .container {
         flex: 2;
+        display: flex;
+        flex-direction: column;
     }
 
     .summary-container {
@@ -118,7 +126,6 @@
         padding: 5px 8px;
         border-radius: 2px;
         cursor: pointer;
-
     }
 
     .action-btn:hover {
@@ -137,70 +144,16 @@
             <!-- Producto 1 -->
             <div class="product-item">
                 <div class="contendor-imagenes">
-                    <img src="https://i.postimg.cc/L84DZfxB/P9351-701-E10016-01.jpg" alt="Producto 1"
+                    <img src="https://i.postimg.cc/ZqhCHKcK/iphone11.jpg" alt="Producto 1"
                         class="product-image" />
                 </div>
                 <div class="product-details">
-                    <span class="current-price">US$ 28.50</span>
+                    <span class="current-price">US$ 200.00</span>
                     <p class="product-description">
-                        Pokémon Piplop - Juguete de Peluche Grande de 12.0 in
+                        Iphone 11 64GB
                     </p>
                     <div>
-                        <div>
-                            <p class="product-description">
-                                Peso: 2.5 </p>
-                        </div>
-                        <strong class="product-stock">En stock - Envío habitual en 24 horas</strong>
-                    </div>
-                    <div class="product-actions">
-                        <input type="number" value="1" class="product-quantity" />
-                        <button class="action-btn">Guardar</button>
-                        <button class="action-btn">Eliminar</button>
-                    </div>
-                </div>
-            </div>
-            <!-- Producto 2 -->
-            <div class="product-item">
-                <div class="contendor-imagenes">
-                    <img src="https://i.postimg.cc/mkMX8s9Y/3506c002559dc8d295b9aad3e7aeb016.jpg" alt="Producto 1"
-                        class="product-image" />
-                </div>
-                <div class="product-details">
-                    <span class="current-price">US$ 28.50</span>
-                    <p class="product-description">
-                        Pokémon Eevee - Juguete de Peluche Grande de 12.0 in
-                    </p>
-                    <div>
-                        <div>
-                            <p class="product-description">
-                                Peso: 2.5 </p>
-                        </div>
-                        <strong class="product-stock">En stock - Envío habitual en 24 horas</strong>
-                    </div>
-                    <div class="product-actions">
-                        <input type="number" value="1" class="product-quantity" />
-                        <button class="action-btn">Guardar</button>
-                        <button class="action-btn">Eliminar</button>
-                    </div>
-                </div>
-            </div>
-            <!-- Producto 3 -->
-
-            <div class="product-item">
-                <div class="contendor-imagenes">
-                    <img src="https://i.postimg.cc/9f774QHY/00156660506181-2-1200x1200.jpg" alt="Producto 1"
-                        class="product-image" />
-                </div>
-                <div class="product-details">
-                    <span class="current-price">US$ 32.50</span>
-                    <p class="product-description">
-                        Peanuts Snoopy - Juguete de Peluche Grande de 12.0 in
-                    </p>
-                    <div>
-                        <div>
-                            <p class="product-description">
-                                Peso: 2.5 </p>
-                        </div>
+                        <p class="product-description">Peso: 2.5 </p>
                         <strong class="product-stock">En stock - Envío habitual en 24 horas</strong>
                     </div>
                     <div class="product-actions">
@@ -241,7 +194,7 @@
         <h2>Resumen del carrito</h2>
         <div class="summary-item">
             <span>Total de artículos(3 uds)</span>
-            <span>US$ 99.50</span>
+            <span>US$ 200.00</span>
         </div>
         <div class="summary-item">
             <span>Envío y gestión</span>
@@ -249,13 +202,15 @@
         </div>
         <div class="summary-item">
             <span>Impuestos sobre rentas:</span>
-            <span>USD$(15%) 14.92</span>
+            <span>USD$(15%) 30</span>
         </div>
         <hr />
         <div class="summary-item summary-total">
             <span>Total:</span>
-            <span>US$ 114.42</span>
+            <span>US$ 230.00</span>
         </div>
         <button class="action-btn2" style="width: 100%; margin-top: 20px;">Pagar</button>
     </div>
 </div>
+
+</html>
