@@ -245,33 +245,24 @@
 </div>
 <div class="tabs-container">
     <div class="tabs-header">
-      <button class="tab active" onclick="showTab('description')">Descripción</button>
-      <button class="tab" onclick="showTab('reviews')">Reseñas</button>
+      <button class="tab" 
+              [class.active]="activeTab === 'description'" 
+              (click)="showTab('description')">
+        Descripción
+      </button>
+      <button class="tab" 
+              [class.active]="activeTab === 'reviews'" 
+              (click)="showTab('reviews')">
+        Reseñas
+      </button>
     </div>
     <div class="tabs-content">
-      <div id="description" class="tab-content active">
+      <div id="description" class="tab-content" [class.active]="activeTab === 'description'">
         <p>Conoce la nueva tecnología de Apple, prueba su nuevo modelo con una cámara profesional. ¿Qué esperas para probar este nuevo modelo?</p>
       </div>
-      <div id="reviews" class="tab-content">
+      <div id="reviews" class="tab-content" [class.active]="activeTab === 'reviews'">
         <p>No hay reseñas disponibles por el momento.</p>
       </div>
     </div>
-  </div>
+</div>
 
-<script>
-  function showTab(tabId) {
-    const tabs = document.querySelectorAll('.tab');
-    const contents = document.querySelectorAll('.tab-content');
-
-    tabs.forEach((tab) => {
-      tab.classList.remove('active');
-    });
-
-    contents.forEach((content) => {
-      content.classList.remove('active');
-    });
-
-    document.querySelector(`#${tabId}`).classList.add('active');
-    document.querySelector(`.tab[onclick="showTab('${tabId}')"]`).classList.add('active');
-  }
-</script>

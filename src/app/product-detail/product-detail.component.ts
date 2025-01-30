@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 })
 export class ProductDetailComponent {
   product:any;
+  activeTab: string = 'description'; // Pestaña activa por defecto
+
   ngOnInit(): void {
     this.product = history.state.product;
     console.log(this.product)
@@ -21,5 +23,9 @@ export class ProductDetailComponent {
     if (goToCart) {
       window.location.href = '/cart'; // Redirige al carrito
     }
+    
+  }
+  showTab(tabId: string): void {
+    this.activeTab = tabId;
   }
 }
