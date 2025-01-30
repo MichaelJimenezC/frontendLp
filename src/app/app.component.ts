@@ -30,4 +30,8 @@ export class AppComponent implements OnInit{
       this.router.navigate(['/login']);
     }
   }
+  goCarrito(){
+    this.router.navigate(['/cart']);
+
+  }
 }

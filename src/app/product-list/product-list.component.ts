@@ -26,7 +26,20 @@ export class ProductListComponent implements OnInit {
 
   addToCart(product: any): void {
     let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    cart.push(product);
+  
+    // Buscamos si el producto ya está en el carrito
+    const existingProduct = cart.find((item: any) => item.name === product.name && item.description === product.description);
+  
+    if (existingProduct) {
+      // Si el producto ya existe, solo incrementamos la cantidad
+      existingProduct.quantity += 1;
+    } else {
+      // Si el producto no existe, lo agregamos con cantidad 1
+      product.quantity = 1;
+      cart.push(product);
+    }
+  
+    // Guardamos el carrito actualizado
     localStorage.setItem('cart', JSON.stringify(cart));
   
     const goToCart = window.confirm('Producto agregado al carrito. ¿Quieres ir al carrito?');
@@ -34,5 +47,6 @@ export class ProductListComponent implements OnInit {
       window.location.href = '/cart'; // Redirige al carrito
     }
   }
+  
   
 }

@@ -13,13 +13,18 @@ export class CarritoComponent implements OnInit {
   tax: number = 0;
   total: number = 0;
   shippingCost: number = 0;
-  product: any;
+  
   constructor() { }
 
   ngOnInit() {
-    this.cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
-
+    this.loadCart();
     this.calculateCart();
+  }
+
+  // Cargar carrito desde localStorage
+  loadCart() {
+    const storedCart = localStorage.getItem('cart');
+    this.cartItems = storedCart ? JSON.parse(storedCart) : [];
   }
 
   // Método para calcular el total de productos, subtotal, impuesto y total
@@ -39,12 +44,30 @@ export class CarritoComponent implements OnInit {
     this.total = subtotal + this.tax + this.shippingCost; // Total = Subtotal + Impuesto + Envío
   }
 
+  // Método para agregar o actualizar un producto en el carrito
+  addToCart(product: any) {
+    const existingProduct = this.cartItems.find(item => item.name === product.name && item.description === product.description);
+
+    if (existingProduct) {
+      // Si el producto ya existe, solo incrementamos la cantidad
+      existingProduct.quantity += 1;
+    } else {
+      // Si el producto no existe, lo agregamos al carrito con cantidad 1
+      this.cartItems.push({ ...product, quantity: 1 });
+    }
+
+    this.calculateCart(); // Recalcular el carrito después de agregar o actualizar el producto
+    this.saveCart();
+  }
+
   // Método para actualizar la cantidad de productos
   updateQuantity(product: any, event: any) {
-    const quantity = event.target.value;
-    product.quantity = quantity;
-    this.calculateCart(); // Recalcular el carrito después de actualizar cantidad
-    this.saveCart();
+    const quantity = parseInt(event.target.value, 10); // Obtener el valor de la cantidad
+    if (quantity > 0) {
+      product.quantity = quantity; // Asignar la nueva cantidad
+      this.calculateCart(); // Recalcular el carrito después de actualizar cantidad
+      this.saveCart();
+    }
   }
 
   // Guardar el carrito en localStorage
@@ -72,5 +95,4 @@ export class CarritoComponent implements OnInit {
     this.shippingCost = cost;
     this.calculateCart(); // Recalcular el carrito después de cambiar el envío
   }
-
 }
