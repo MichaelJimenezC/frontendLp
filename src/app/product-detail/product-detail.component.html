@@ -204,21 +204,19 @@
     <div class="product-image">
       <img src="https://i.postimg.cc/ZqhCHKcK/iphone11.jpg" alt="iPhone 11">
     </div>
-    <div class="product-details">
-      <p class="views">👁 Vistas: 160k</p>
-      <h1>iPhone 11 64GB</h1>
-      <h2>$ 200.00</h2>
+    <div *ngFor="let product of seasonProducts" class="product-details">
+      <p class="views">👁 {{product.views}}</p>
+      <h1>{{product.description}}/h1>
+      <h2>{{product.price}}</h2>
       <div class="product-info">
         <h4>Detalles del producto:</h4>
-        <p><strong>Dimensiones:</strong> 5.5 x 10 cm</p>
+        <p><strong>Nombre:</strong>{{product.name}}</p>
         <p><strong>Categoría:</strong> Tecnología</p>
-        <p><strong>Color:</strong> Blanco</p>
       </div>
       <div class="vendor-info">
         <h3>Sobre el Vendedor:</h3>
-        <p><strong>Nombre:</strong> Apple México</p>
-        <p><strong>Ubicación:</strong> Ciudad de México, México</p>
-        <p><strong>Se unió:</strong> 2021</p>
+        <p><strong>Nombre:</strong> {{product.seller}}</p>
+        <p><strong>Usuario:</strong>{{product.user}}</p>
       </div>
       <h3>Envíale un mensaje al vendedor</h3>
       <div class="message-box">
