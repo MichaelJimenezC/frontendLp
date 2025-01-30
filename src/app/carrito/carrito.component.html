@@ -1,4 +1,3 @@
-
 <style>
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -140,8 +139,7 @@
             <!-- Productos-->
             <div *ngFor="let product of cartItems" class="product-item">
                 <div class="contendor-imagenes">
-                    <img src="https://i.postimg.cc/ZqhCHKcK/iphone11.jpg" alt="Producto 1"
-                        class="product-image" />
+                    <img src="https://i.postimg.cc/ZqhCHKcK/iphone11.jpg" alt="Producto 1" class="product-image" />
                 </div>
                 <div class="product-details">
                     <span class="current-price">{{ product.price }}</span>
@@ -149,13 +147,12 @@
                         {{ product.description }}
                     </p>
                     <div class="product-actions">
-                        <input type="number" value="1" class="product-quantity" />
-                        <button class="action-btn">Guardar</button>
-                        <button class="action-btn">Eliminar</button>
+                        <input type="number" [(ngModel)]="product.quantity" min="1" class="product-quantity" (change)="updateCart()" />
+                        <button class="action-btn" (click)="removeFromCart(product)">Eliminar</button>
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 
@@ -164,45 +161,43 @@
         <div>
             <h2>Envío a Guayaquil</h2>
             <form>
-                <input type="radio">
-                <label>Exprés- US$14.00</label>
+                <input type="radio" name="shipping" (change)="setShippingCost(14)" />
+                <label>Exprés - US$14.00</label>
                 <br>
                 <label class="secondary-label">3 a 5 días laborales</label>
                 <br>
                 <img class="secondary-label" src="https://i.postimg.cc/tCDWjSFd/envios.png" height="30" width="180">
                 <br>
-                <input type="radio">
-                <label>Estándar- GRATUITO</label>
+                <input type="radio" name="shipping" checked (change)="setShippingCost(0)" />
+                <label>Estándar - GRATUITO</label>
                 <br>
                 <label class="secondary-label">10 a 14 días laborales</label>
                 <br>
             </form>
         </div>
-        <div>
-            <h2>Cupones o descuentos</h2>
-            <div class="summary-item">
-                <span>N/A</span>
-            </div>
-        </div>
+
         <h2>Resumen del carrito</h2>
         <div class="summary-item">
-            <span>Total de artículos</span>
-            <span>US$ {{ product.price }}</span>
+            <span>Total de artículos:</span>
+            <span>{{ getTotalItems() }}</span>
         </div>
         <div class="summary-item">
-            <span>Envío y gestión</span>
-            <span>GRATUITO</span>
+            <span>Subtotal:</span>
+            <span>{{ getSubtotal() | currency }}</span>
         </div>
         <div class="summary-item">
-            <span>Impuestos sobre rentas:</span>
-            <span>USD$(15%) {{ product.price }}</span>
+            <span>Impuestos (15% IVA):</span>
+            <span>{{ getTax() | currency }}</span>
+        </div>
+        <div class="summary-item">
+            <span>Envío y gestión:</span>
+            <span>{{ shippingCost | currency }}</span>
         </div>
         <hr />
         <div class="summary-item summary-total">
-            <span>Total:</span>
-            <span>US$ {{ product.price }}</span>
+            <span>Total a pagar:</span>
+            <span>{{ getTotal() | currency }}</span>
         </div>
         <button class="action-btn2" style="width: 100%; margin-top: 20px;">Pagar</button>
     </div>
 </div>
-
