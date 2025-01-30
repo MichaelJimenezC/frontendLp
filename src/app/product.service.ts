@@ -22,7 +22,8 @@ export class ProductService {
       name:product.name,
       description:product.description,
       user:product.user.name,
-      fecha:product.created_at
+      fecha:product.created_at,
+      category:product.category.name
     }));
   
     return formattedProducts;
