@@ -9,50 +9,68 @@ import { CommonModule } from '@angular/common';
 })
 export class CarritoComponent implements OnInit {
   cartItems: any[] = [];
-
-  product: any;
-  ngOnInit(): void {
-    this.loadCart(); // Cargar los productos del carrito al inicializar el componente
-  }
-
-  loadCart(): void {
-    this.cartItems = JSON.parse(localStorage.getItem('cart') || '[]'); // Obtener el carrito del localStorage
-  }
-
-  removeFromCart(productId: number): void {
-    this.cartItems = this.cartItems.filter(item => item.id !== productId); // Eliminar producto
-    localStorage.setItem('cart', JSON.stringify(this.cartItems)); // Guardar el carrito actualizado
-  }
-  shippingCost: number = 0; // dejaremos por defecto envío gratuito
   subtotal: number = 0;
   tax: number = 0;
   total: number = 0;
-  totalItems: number = 0;
-  constructor() {
-    this.updateCart();
+  shippingCost: number = 0;
+  product: any;
+  constructor() { }
+
+  ngOnInit() {
+    this.cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
+
+    this.calculateCart();
   }
 
-  updateCart(): void {
-    this.totalItems = this.cartItems.reduce((total, product) => total + product.quantity, 0);
-    this.subtotal = this.cartItems.reduce((subtotal, product) => subtotal + (product.price * product.quantity), 0);
-    this.tax = this.subtotal * 0.15; // 15% de IVA
-    this.total = this.subtotal + this.tax + this.shippingCost;
+  // Método para calcular el total de productos, subtotal, impuesto y total
+  calculateCart() {
+    let totalItems = 0;
+    let subtotal = 0;
+
+    // Calculamos el subtotal y la cantidad total de productos
+    this.cartItems.forEach(item => {
+      const price = parseFloat(item.price.replace('$', '').replace(',', '')); // Convertir precio de string a número
+      totalItems += item.quantity || 1;
+      subtotal += price * (item.quantity || 1);
+    });
+
+    this.subtotal = subtotal;
+    this.tax = subtotal * 0.15; // 15% de IVA
+    this.total = subtotal + this.tax + this.shippingCost; // Total = Subtotal + Impuesto + Envío
   }
 
-  updateQuantity(product: any, event: any): void {
-    const newQuantity = parseInt(event.target.value, 10);
-    product.quantity = newQuantity > 0 ? newQuantity : 1;
-    this.updateCart(); // Actualiza los cálculos cuando cambia la cantidad
+  // Método para actualizar la cantidad de productos
+  updateQuantity(product: any, event: any) {
+    const quantity = event.target.value;
+    product.quantity = quantity;
+    this.calculateCart(); // Recalcular el carrito después de actualizar cantidad
+    this.saveCart();
   }
 
-  setShippingCost(cost: number): void {
+  // Guardar el carrito en localStorage
+  saveCart() {
+    localStorage.setItem('cart', JSON.stringify(this.cartItems));
+  }
+
+  // Método para eliminar un producto
+  removeFromCart1(product: any) {
+    const index = this.cartItems.indexOf(product);
+    if (index > -1) {
+      this.cartItems.splice(index, 1);
+    }
+    this.calculateCart(); // Recalcular el carrito después de eliminar producto
+    this.saveCart();
+  }
+
+  // Método para obtener el total de artículos
+  totalItems() {
+    return this.cartItems.reduce((acc, item) => acc + (item.quantity || 1), 0);
+  }
+
+  // Método para ajustar el costo de envío
+  setShippingCost(cost: number) {
     this.shippingCost = cost;
-    this.updateCart();
-  }
-
-  removeFromCart1(productToRemove: any): void {
-    this.cartItems = this.cartItems.filter(product => product !== productToRemove);
-    this.updateCart();
+    this.calculateCart(); // Recalcular el carrito después de cambiar el envío
   }
 
 }
