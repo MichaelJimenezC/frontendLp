@@ -1,0 +1,35 @@
+.tab {
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .tab.active {
+    color: black;
+  }
+  
+  .tab.active::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: black;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+  }
+  
+  .tab-content {
+    display: none;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .tab-content.active {
+    display: block;
+  }
+  
