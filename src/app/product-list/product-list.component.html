@@ -259,11 +259,11 @@
         <div *ngFor="let product of seasonProducts" class="product-card">
           <!-- Enlace al detalle del producto -->
           <a [routerLink]="['/product', product.id]" [state]="{ product: product }">
-            <img [src]="product.img" alt="Producto" class="product-image">
+            <img src="https://i.postimg.cc/ZqhCHKcK/iphone11.jpg" height="80" width="150" alt="Producto" class="product-image">
             <div class="product-info">
               <p class="views">👁 {{ product.views }}</p>
-              <p>Vendido por: {{ product.seller }}</p>
-              <p>Precio: {{ product.price }}</p>
+              <p><strong>Vendido por:</strong> {{ product.seller }}</p>
+              <p><strong>Precio: </strong>{{ product.price }}</p>
             </div>
           </a>
 
@@ -287,7 +287,7 @@
             <img [src]="product.img" alt="Producto" class="product-image">
             <div class="product-info">
               <p class="views">👁 {{ product.views }}</p>
-              <p>Vendido por: {{ product.seller }}</p>
+              <p> <strong>Vendido por:</strong> {{ product.seller }}</p>
               <p>Precio: {{ product.price }}</p>
             </div>
           </a>
