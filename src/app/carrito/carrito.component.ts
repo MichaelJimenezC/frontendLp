@@ -42,6 +42,9 @@ export class CarritoComponent implements OnInit {
   updateCart(): void {
     console.log('Carrito actualizado:', this.cartItems);
   }
-
+  updateQuantity(product: any, event: any): void {
+    const newQuantity = parseInt(event.target.value, 10);
+    product.quantity = newQuantity > 0 ? newQuantity : 1;
+  }
 
 }

@@ -147,7 +147,8 @@
                         {{ product.description }}
                     </p>
                     <div class="product-actions">
-                        <input type="number" [(ngModel)]="product.quantity" min="1" class="product-quantity" (change)="updateCart()" />
+                        <input type="number" [value]="product.quantity" min="1" class="product-quantity"
+                               (change)="updateQuantity(product, $event)" />
                         <button class="action-btn" (click)="removeFromCart(product)">Eliminar</button>
                     </div>
                 </div>
