@@ -1,9 +1,9 @@
 <div class="login-container">
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <div>
         <label for="usuario">Usuario:</label>
         <input id="usuario" formControlName="usuario" type="text" />
-        <div *ngIf="loginForm.get('usuario')?.invalid && loginForm.get('usuario')?.touched">
+        <div *ngIf="registerForm.get('usuario')?.invalid && registerForm.get('usuario')?.touched">
           El usuario es requerido.
         </div>
       </div>
@@ -11,12 +11,12 @@
       <div>
         <label for="contraseña">Contraseña:</label>
         <input id="contraseña" formControlName="contraseña" type="password" />
-        <div *ngIf="loginForm.get('contraseña')?.invalid && loginForm.get('contraseña')?.touched">
+        <div *ngIf="registerForm.get('contraseña')?.invalid && registerForm.get('contraseña')?.touched">
           La contraseña es requerida y debe tener al menos 6 caracteres.
         </div>
       </div>
   
-      <button type="submit" [disabled]="loginForm.invalid">Registrarme</button>
+      <button type="submit" [disabled]="registerForm.invalid">Registrarme</button>
 
       <!-- Link para ir al registro -->
       <p class="register-text">
